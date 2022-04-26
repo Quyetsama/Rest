@@ -5,6 +5,9 @@ const route = app => {
 
     app.use('/auth', userRouter)
     app.use('/student', studentRouter)
+    app.get('/home', (req, res, next) => {
+        return res.render('home')
+    })
 
     app.get('/', (req, res, next) => {
         return res.status(200).json({
