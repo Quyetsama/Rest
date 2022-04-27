@@ -1,13 +1,17 @@
 const userRouter = require('./User.route')
 const studentRouter = require('./Student.route')
+// const home = require('./home')
+var express = require('express');
+var app = express();
 
-const route = app => {
+
+const route = (app) => {
 
     app.use('/auth', userRouter)
     app.use('/student', studentRouter)
     app.get('/home', (req, res, next) => {
-        return res.render('home')
-    })
+        return res.render("edit");
+        })
 
     app.get('/', (req, res, next) => {
         return res.status(200).json({
